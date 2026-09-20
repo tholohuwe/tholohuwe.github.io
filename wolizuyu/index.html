@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我立足于美利坚合众国 - 美国生活指南与实用资讯</title>
+    <meta name="description" content="提供关于美国生活、留学、工作、法律及文化资讯的实用指南，帮助在华华人及赴美人士快速融入美国社会。">
+    <meta name="keywords" content="美国生活,美利坚合众国,美国留学,美国工作,美国法律,美国文化">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .search-box {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .search-box {
+                display: block;
+                position: relative;
+            }
+            .search-box input {
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                border: none;
+                width: 200px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background-color: #fff;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--accent-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .feature-content p {
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #fff;
+            padding: 3rem 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            padding-left: 1.5rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Utility */
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span>🇺🇸</span> 美利坚生活指南
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#news">最新资讯</a></li>
+                <li><a href="#guide">生活指南</a></li>
+                <li><a href="#legal">法律政策</a></li>
+                <li><a href="#community">华人社区</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索美国资讯...">
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>我立足于美利坚合众国</h1>
+        <p>深度解析美国生活现状，提供从移民政策到日常起居的全方位实用信息，助您在美利坚合众国安家落户。</p>
+    </div>
+</section>
+
+<main class="container">
+    <!-- Latest News Section -->
+    <section id="news">
+        <h2 class="section-title">最新时事与动态</h2>
+        <div class="grid-3">
+            <article class="card">
+                <img src="https://picsum.photos/seed/usa1/400/250" alt="美国经济数据" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">经济</span>
+                    <h3 class="card-title">2024年美国通胀数据与消费趋势分析</h3>
+                    <p class="card-text">随着美联储利率政策的调整，美国通胀水平逐渐回落，消费者信心指数在第三季度有所回升，分析报告指出零售行业将迎来新的增长点。</p>
+                    <div class="card-meta">
+                        <span>2023-10-15</span>
+                        <span>阅读 1.2k</span>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/usa2/400/250" alt="新移民政策" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">移民</span>
+                    <h3 class="card-title">最新H-1B签证抽签结果公布及应对策略</h3>
+                    <p class="card-text">针对今年的H-1B抽签情况，资深移民律师解读了新的注册规则变化，并为未中签申请人提供了备选方案和申请绿卡的建议。</p>
+                    <div class="card-meta">
+                        <span>2023-10-12</span>
+                        <span>阅读 2.5k</span>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/usa3/400/250" alt="城市建设" class="card-img">
+                <div class="card-body">
+                    <span class="card-tag">城市</span>
+                    <h3 class="card-title">美国一线城市房租涨幅放缓，郊区购房热潮持续</h3>
+                    <p class="card-text">数据显示，纽约和洛杉矶的租金涨幅已连续两个月持平，而随着远程办公的普及，德克萨斯州和亚利桑那州的房地产市场依然火热。</p>
+                    <div class="card-meta">
+                        <span>2023-10-10</span>
+                        <span>阅读 890</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Practical Guide Section -->
+    <section id="guide" class="feature-section">
+        <h2 class="section-title">美利坚生活实用指南</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🏦</div>
+                <div class="feature-content">
+                    <h3>银行开户与金融体系</h3>
+                    <p>详细介绍美国主流银行（如Chase, Bank of America）的开户流程、信用卡申请条件以及如何建立良好的信用记录。</p>
+                    <a href="#" class="btn">查看详情</a>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚗</div>
+                <div class="feature-content">
+                    <h3>驾照与交通法规</h3>
+                    <p>从国际驾照转换到本土驾照的考试攻略，以及美国各州交通规则差异和高速公路驾驶注意事项。</p>
+                    <a href="#" class="btn">查看详情</a>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🏥</div>
+                <div class="feature-content">
+                    <h3>医疗保险与医疗资源</h3>
+                    <p>解析美国复杂的医疗保险制度，包括雇主保险、奥巴马医改以及如何选择适合家庭和个人的医疗计划。</p>
+                    <a href="#" class="btn">查看详情</a>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎓</div>
+                <div class="feature-content">
+                    <h3>子女教育与升学路径</h3>
+                    <p>涵盖K-12公立与私立学校选择、学区房考量，以及大学申请和奖学金信息。</p>
+                    <a href="#" class="btn">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <h2 class="section-title">常见问题解答</h2>
+        <div class="faq-item">
+            <div class="faq-question">Q: 在美国生活需要准备多少资金？</div>
+            <div class="faq-answer">A: 这取决于所在城市的生活成本。一线城市如纽约、旧金山每月的生活开销（含房租、饮食、交通）通常在3000-5000美元以上，而中西部或南部地区可能较低。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Q: 语言不通如何适应日常生活？</div>
+            <div class="faq-answer">A: 英语是通用语言，但在华人聚居区（如纽约唐人街、洛杉矶小东京）生活通常没有问题。此外，使用Google Translate等翻译软件和各类生活APP能极大便利沟通。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Q: 美国对华裔的就业环境如何？</div>
+            <div class="faq-answer">A: 美国就业市场对STEM（科学、技术、工程、数学）领域的专业人才需求旺盛。华裔在科技、金融、医疗和教育行业都有广泛的就业机会，但需注意职场文化差异。</div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>关于我立足于美利坚合众国</h4>
+                <p style="color: #bdc3c7; font-size: 0.9rem;">
+                    专注于为所有在美国生活、工作和学习的人提供最准确、最实用的资讯服务。我们的目标是帮助您更好地理解美国社会，享受美好的美利坚生活。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">最新资讯</a></li>
+                    <li><a href="#">生活指南</a></li>
+                    <li><a href="#">法律政策</a></li>
+                    <li><a href="#">华人社区</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">投稿指南</a></li>
+                    <li><a href="#">网站地图</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">Twitter / X</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023-2024 美利坚生活指南 版权所有
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Simple FAQ Toggle Logic
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', event => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>
